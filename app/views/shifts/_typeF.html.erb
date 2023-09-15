@@ -1,0 +1,13 @@
+<div class="shift-detail">
+  <div class="roll">
+    設営
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[18]{}", options_for_select(User.joins(:roles).where(roles: { id: 18}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （6名）
+  </div>
+</div>

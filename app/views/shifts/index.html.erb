@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <%= month_calendar do |date| %>
+    <%= date.day %>
+  <% end %>
+
+  <div class = "main-menu">
+  <% if current_user.id == 1 %>
+    <div class = "menu">
+      <%= link_to 'スタッフ編集', roles_path, class:'edit-btn' %>
+    </div>
+    <div class = "menu"> 
+      <%= link_to "シフト作成", new_shift_path, class: "shift-btn" %>
+    </div>
+  <% end %>
+    <div class = "holiday-btm menu"> 
+      勤務希望
+    </div>
+  </div>  
+<% end %>

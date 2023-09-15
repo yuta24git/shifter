@@ -1,0 +1,20 @@
+<div class="edit-title">
+  スタッフ編集
+</div>
+<%= form_with model: @role, url: roles_path, local: true do |f| %>
+  <div class="role-category-box">
+      <%= f.select :user_id, options_for_select([["編集するスタッフを選択してください", ""]] + User.all.map { |user| [user.name, user.id] }) %>
+      <div class="custom-select">
+        <select id="role_ids" name="role_ids[]" class = "role_ids" multiple >
+      </select>
+      </div>
+      <%= f.submit "保存する", class: "btn" %>
+  </div>
+<% end %>
+
+<div id="user-details" class="user-details" style="display: none;">
+  <div id="user-name" class="user-name" style="display: none;">
+  </div>
+  <div id="user-roles" class="user-roles" style="display: none;">
+  </div>
+</div>

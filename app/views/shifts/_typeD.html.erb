@@ -1,0 +1,52 @@
+<div class="shift-detail">
+  <div class="roll">
+    心電図
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[14]{}", options_for_select(User.joins(:roles).where(roles: { id: 14}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （2名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    心電図介助
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[3]{}", options_for_select(User.joins(:roles).where(roles: { id: 3}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div> 
+  </div>
+  <div class="member">
+    （4名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    採血
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[2]{}", options_for_select(User.joins(:roles).where(roles: { id: 2}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （8名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    ポータブル
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[17]{}", options_for_select(User.joins(:roles).where(roles: { id: 17}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （1名）
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="shift-detail">
+  <div class="roll">
+    問診
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[1]{}", options_for_select(User.joins(:roles).where(roles: { id: 1}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （3名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    採血
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[2]{}", options_for_select(User.joins(:roles).where(roles: { id: 2}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （2名）
+  </div>
+</div>

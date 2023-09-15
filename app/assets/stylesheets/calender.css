@@ -1,0 +1,12 @@
+.calendar-heading span{
+  font-size: 25px;
+}
+
+.wday-0 {
+  color: red;
+  background-color: rgb(255 234 234);
+}
+.wday-6 {
+  color: blue;
+  background-color: rgb(220 220 255);
+}

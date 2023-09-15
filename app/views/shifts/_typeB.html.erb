@@ -1,0 +1,130 @@
+<div class="shift-detail">
+  <div class="roll">
+    問診
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[1]{}", options_for_select(User.joins(:roles).where(roles: { id: 1}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （4名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    採血
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[2]{}", options_for_select(User.joins(:roles).where(roles: { id: 2}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （4名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    心電図
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[14]{}", options_for_select(User.joins(:roles).where(roles: { id: 14}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （2名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    心電図介助
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[3]{}", options_for_select(User.joins(:roles).where(roles: { id: 3}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （2名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    腹囲測定
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[4]{}", options_for_select(User.joins(:roles).where(roles: { id: 4}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （2名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    聴力検査
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[5]{}", options_for_select(User.joins(:roles).where(roles: { id: 5}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （2名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    眼底
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[6]{}", options_for_select(User.joins(:roles).where(roles: { id: 6}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （1名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    胃透視介助
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[8]{}", options_for_select(User.joins(:roles).where(roles: { id: 8}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （1名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    診察介助
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[10]{}", options_for_select(User.joins(:roles).where(roles: { id: 10}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （2名）
+  </div>
+</div>
+<div class="shift-detail">
+  <div class="roll">
+    胸写
+  </div>
+  <div class="custom-select">
+    <div class="user-select">
+      <%= f.select "user_role_combinations[9]{}", options_for_select(User.joins(:roles).where(roles: { id: 9}).order(id: :asc).map { |user| [user.name, user.id] }), {include_hidden: false}, {class: "user_id", multiple: true} %>
+    </div>
+  </div>
+  <div class="member">
+    （1名）
+  </div>
+</div>

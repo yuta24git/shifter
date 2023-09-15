@@ -1,0 +1,200 @@
+.main-menu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 65px;
+}
+
+.menu {
+  height: 100px;
+  width: 218px;
+  font-size: 33px;
+  background-color: orange;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  line-height: 100px;
+}
+
+.month-select {
+  margin: 10px 0 0 40px;
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
+}
+
+.table-block {
+  margin: 5px auto;
+  overflow: scroll;
+  width: 100vw;
+  height: 500px;
+  position: relative; /* ヘッダー固定のために相対位置を設定 */
+}
+
+.table-header {
+  position: sticky;
+  top: 0; /* ヘッダーの背景色を設定 */
+  z-index: 1; /* ヘッダーをデータ部分の上に表示 */
+}
+
+.table-block tr {
+  background-color: whitesmoke;
+}
+
+.table-block th,td{
+  border:1px #333 solid;
+  padding: 10px 5px; 
+}
+
+.table-block th {
+  width: 43px;
+}
+
+.table-block td {
+  width: 100px;
+  text-align: center;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+input#shift_shift_data {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.shift-menu {
+  display: flex;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  height: 2000px;
+}
+
+.am {
+  border-right: 1px rgb(160, 160, 160) dashed;
+  height: 2400px;
+}
+
+.shift-category {
+  width: calc(100vw / 3);
+  text-align: center;
+  font-size: 25px;
+}
+
+.role-category-box {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.role-category-box select {
+  height: 30px;
+  width: 250px;
+  margin-top: 20px;
+}
+
+.category-box {
+  padding-top: 20px;
+}
+
+.category-box select {
+  height: 30px;
+  width: 250px;
+  margin-top: 20px;
+}
+
+.category-select {
+  height: 30px;
+  width: 250px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.role-category-box .btn {
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 200px;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid white;
+  background-color: orange;
+  color: white;
+  font-size: 20px;
+}
+
+.user-details {
+  margin: auto;
+  background-color: #ced6ff;
+  width: 900px;
+  height: auto;
+  border: none;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px 0;
+}
+
+.user-name {
+  font-size: 30px;
+}
+
+.role-tag {
+  text-align: center;
+  font-size: 20px;
+}
+
+.roll {
+  text-align: left;
+  margin-left: 35px;
+  font-size: 20px;
+}
+
+.user-select select {
+  height: 100px;
+  width: 200px;
+}
+
+.member {
+  text-align: end;
+  margin-right: 20px;
+  font-size: 20px;
+  color: #a7a7a7;
+}
+
+.meridiem {
+  font-size: 30px;
+  padding: 20px 0 5px 40px;
+}
+
+.shift-contents {
+  height: 2000px;
+}
+
+select#role_ids {
+  height: 160px;
+}
+
+.custom-select {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-select select {
+  cursor: pointer;
+  appearance: none;
+}
+
+.custom-select::after {
+  content: '\25BC';
+  position: absolute;
+  cursor: pointer;
+}

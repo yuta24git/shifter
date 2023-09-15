@@ -1,0 +1,60 @@
+.top-page-header {
+  width: 100vw;
+  height: 100px;
+  padding: 2vh ;
+  display: flex;
+  justify-content: space-between;
+  background-color: darkblue;
+}
+
+.top-left {
+  font-size: 50px;  
+  margin: 0 0 50px 50px;
+}
+
+.logo {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1vh 0;
+}
+
+.lists {
+  display: flex;
+  min-width: 200px;
+}
+
+.lists {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  margin-right: 50px;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  margin-right: 50px;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #ffffff;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #ffffff;
+}

@@ -1,0 +1,220 @@
+
+<input type="month" name="example" id="month-select"  class="month-select">
+<script>
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); 
+  document.getElementById('month-select').value = `${year}-${month}`;
+</script>
+<script>
+  // 月を選択すると表がthに日付を表示
+  document.addEventListener("turbo:load", function () {
+    const monthSelect = document.querySelector("#month-select");
+    const dateTable = document.querySelector(".table"); // <table> 要素を取得
+    const headerRow = document.querySelector(".table thead tr"); // <thead> 内の <tr> 要素を取得
+    const rows = document.querySelectorAll(".table tbody tr:nth-child(n)");
+
+    // 初期状態では現在の月を表示
+    updateDateTable(new Date());
+
+    // 月が選択されたときの処理
+    monthSelect.addEventListener("change", function () {
+      const selectedYear = parseInt(monthSelect.value.split("-")[0]);
+      const selectedMonth = parseInt(monthSelect.value.split("-")[1]) - 1;
+      const selectedDate = new Date(selectedYear, selectedMonth, 1);
+      updateDateTable(selectedDate);
+    });
+
+    // テーブルの日付を更新する関数
+    function updateDateTable(selectedDate) {
+      // ヘッダー行の初期化
+      headerRow.innerHTML = ""; // <thead> 内の内容をクリア
+
+      const daysInMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0).getDate();
+
+      // 日付セルをヘッダー行に追加
+      const dateHeaderCell = document.createElement("th");
+      dateHeaderCell.style.width = '100px';
+      dateHeaderCell.textContent = " ";
+      headerRow.appendChild(dateHeaderCell); // <th> を <tr> 内に追加
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const tableHeader = document.createElement("th");
+        tableHeader.textContent = day;
+        headerRow.appendChild(tableHeader); // <th> を <tr> 内に追加
+      }
+      
+      fetch("/shift_data")
+        .then(response => response.text())
+        .then(data => {
+          console.log(data)
+          rows.forEach(row => {
+            for (let day = 1; day <= daysInMonth; day++) {
+              const tableBodyTd = document.createElement("td");
+              if (user_shift == day) {
+                tableBodyTd.textContent = "a";
+                row.appendChild(tableBodyTd); // 行内にセルを追加
+              } else {
+                
+              }
+            }
+          });
+        })
+    };
+  });
+</script>
+<div class="table-block">
+  <div class="table-header">
+    <table class="table" id="date-table">
+      <thead>
+        <tr>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <table class="table">
+    <tbody>
+      <% @users_roles.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="shift-contents">
+
+  <div class="meridiem">
+    午前
+  </div>
+
+  <div class="shift-menu">
+
+    <div class="am shift-category">
+      <%= render "typeA", shift: @shift, user_with_role: @user_with_role %>
+    </div>
+
+    <div class="am shift-category">
+
+      <div>
+        所外検診
+      </div>
+    
+      <div>
+        <%= form_with model: @shift, url:shifts_path, local: true do |f| %>
+
+          <div class="shift-date">
+            <%= f.date_field :shift_data %>
+          </div>   
+        
+          <div class="category-box">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select", id: "category-select1"}) %>
+          </div>
+
+          <div id="shift-details-block">
+            <div id="type-b" style="display:none;">
+              <%= render "typeB", f: f %>
+            </div>
+            <div id="type-c" style="display:none;">
+              <%= render "typeC", f: f %>
+            </div>
+            <div id="type-d" style="display:none;">
+              <%= render "typeD", f: f %>
+            </div>
+            <div id="type-e" style="display:none;">
+              <%= render "typeE", f: f %>
+            </div>
+            <div id="type-f" style="display:none;">
+              <%= render "typeF", f: f %>
+            </div>
+          </div>
+        
+          <%= f.submit "保存する" ,class:"btn" %>
+        
+        <% end %>
+      </div>
+    </div>
+
+    <div class="shift-category">
+      <div>
+        がん検診
+      </div>
+    
+      <div>
+        <%= form_with model: @shift, url:shifts_path, local: true do |f| %>
+
+          <div class="shift-date">
+            <%= f.date_field :shift_data %>
+          </div>   
+
+          <div class="category-box">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select", id: "category-select2"}) %>
+          </div>
+
+          <div id="shift-details-block">
+            <div id="type-g" style="display:none;">
+              <%= render "typeB", f: f %>
+            </div>
+            <div id="type-h" style="display:none;">
+              <%= render "typeC", f: f %>
+            </div>
+            <div id="type-i" style="display:none;">
+              <%= render "typeD", f: f %>
+            </div>
+            <div id="type-j" style="display:none;">
+              <%= render "typeE", f: f %>
+            </div>
+            <div id="type-k" style="display:none;">
+              <%= render "typeF", f: f %>
+            </div>
+          </div>
+          <%= f.submit "保存する" ,class:"btn" %>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="meridiem">
+    午後
+  </div>
+  <div class="shift-category ">
+    <div>
+      PM検診
+    </div>
+    <div>
+      <%= form_with model: @shift, url:shifts_path, local: true do |f| %>
+        <div class="shift-date">
+          <%= f.date_field :shift_data %>
+        </div> 
+        <div class="category-box">
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select", id: "category-select3"}) %>
+        </div>
+
+        <div id="shift-details-block">
+          <div id="type-l" style="display:none;">
+            <%= render "typeB", f: f %>
+          </div>
+          <div id="type-m" style="display:none;">
+            <%= render "typeC", f: f %>
+          </div>
+          <div id="type-n" style="display:none;">
+            <%= render "typeD", f: f %>
+          </div>
+          <div id="type-o" style="display:none;">
+            <%= render "typeE", f: f %>
+          </div>
+          <div id="type-p" style="display:none;">
+            <%= render "typeF", f: f %>
+          </div>
+        </div>
+
+        <%= f.submit "保存する" ,class:"btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
